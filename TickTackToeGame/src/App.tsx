@@ -2,13 +2,51 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
-function App() {
 
-  return (
-    <div>
-   <h1>Test</h1>
-    </div>
-  )
+
+
+interface SquareProps {
+  value: string; 
 }
 
-export default App
+function Square() {
+
+  const [value, setValue] = useState<null | String>(null);
+
+  function handleClick() {
+    setValue('X');
+  }
+
+  return (
+    <button
+      className="square"
+      onClick={handleClick}
+    >
+     {value} 
+    </button>
+  );
+}
+
+
+export default function board() {
+  return ( <> 
+  <div className='boardrow'> 
+      <Square/>
+      <Square/>
+      <Square/>
+  
+  </div>
+  <div className='boardrow'>
+  <Square/>
+  <Square/>
+  <Square/>
+
+  </div>
+  <div className='boardrow'>
+  <Square/>
+  <Square/> 
+  <Square/>
+  </div>
+  
+  </>)
+}
