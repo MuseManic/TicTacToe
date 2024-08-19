@@ -11,6 +11,7 @@ interface SquareProps {
 
 
 
+
 function Square({ value, onSquareClick }: SquareProps) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -22,12 +23,29 @@ function Square({ value, onSquareClick }: SquareProps) {
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = useState(true);
 
-  function handleClick(i:any) {
+  function handleClick(i: number) {
+
+    if(squares[i])
+    {
+      console.log("test")
+      return
+    }
+      
     const nextSquares = squares.slice();
-    nextSquares[i] = 'X';
+   
+    if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
+
+
     setSquares(nextSquares);
+    setXIsNext(!xIsNext); 
   }
+  
   return ( <> 
  <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />

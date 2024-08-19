@@ -6,7 +6,13 @@
 }
 .square 
 {
-  height: 33px;
-  width: 33px;
+  
+  padding: 10px 20px;
+  background-color: #82cd85;
+  color: white;
+  border: 30px solid #4CAF50; 
+  border-radius: 10px;
+  cursor: pointer;
+
 }
 
